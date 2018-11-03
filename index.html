@@ -5,8 +5,7 @@
     <title>Test Card Generator</title>
     <link rel="stylesheet" href="./css/card.css"/>
 </head>
-<base href="http://localhost:3000/">
-<base href="https://ardesco.keybase.pub/ccgenerator/">
+<base id="base">
 <body>
 <h1>Test Card Generation Harness</h1>
 <div>
@@ -52,6 +51,7 @@
     }
 
     document.getElementById("generate").addEventListener("click", displayCardDetails, false);
+    document.getElementById("base").setAttribute("href", window.location)
 </script>
 </body>
 </html>
