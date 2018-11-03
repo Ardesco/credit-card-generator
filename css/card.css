@@ -33,7 +33,7 @@ body {
 }
 
 .visa #logo {
-    background-image: url(/images/visa.png);
+    background-image: url(../images/visa.png);
     position: absolute;
     width: 6.1rem;
     height: 1.9rem;
@@ -43,7 +43,7 @@ body {
 }
 
 .mastercard #logo {
-    background-image: url(/images/mastercard.png);
+    background-image: url(../images/mastercard.png);
     position: absolute;
     width: 8rem;
     height: 5.3rem;
