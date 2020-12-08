@@ -1,14 +1,26 @@
 package main
 
 import (
-	"fmt"
+	"github.com/Ardesco/credit-card-generator/api/controllers"
+	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-const port = 3000
-
 func main() {
-	fmt.Printf("\nRunning card generation tool...\nNavigate to http://localhost:%v\n", port)
-	http.Handle("/", http.FileServer(http.Dir(".")))
-	http.ListenAndServe(fmt.Sprintf(":%v", port), nil)
+	router := gin.Default()
+
+	router.GET("/ping", controllers.Ping)
+	router.StaticFS("./css", http.Dir("css"))
+	router.StaticFS("./fonts", http.Dir("fonts"))
+	router.StaticFS("./images", http.Dir("images"))
+	router.StaticFS("./js", http.Dir("js"))
+	router.GET("/", func(c *gin.Context) {
+		c.File("./index.html")
+	})
+
+	router.GET("/api/list", controllers.ListTypes)
+	router.GET("/api/generate/cards", controllers.GenerateCards)
+	router.GET("/api/generate/card", controllers.GenerateCard)
+
+	router.Run()
 }
