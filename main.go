@@ -21,6 +21,5 @@ func main() {
 	router.GET("/api/list", controllers.ListTypes)
 	router.GET("/api/generate/cards", controllers.GenerateCards)
 	router.GET("/api/generate/card", controllers.GenerateCard)
-
-	router.Run()
+	router.Run(fmt.Sprintf(":%s", os.Getenv("PORT", 3000)))	
 }
