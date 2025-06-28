@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"github.com/Ardesco/credit-card-generator/api/controllers"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -21,5 +23,5 @@ func main() {
 	router.GET("/api/list", controllers.ListTypes)
 	router.GET("/api/generate/cards", controllers.GenerateCards)
 	router.GET("/api/generate/card", controllers.GenerateCard)
-	router.Run(fmt.Sprintf(":%s", os.Getenv("PORT", 3000)))	
+	router.Run(fmt.Sprintf(":%s", os.Getenv("PORT")))
 }
